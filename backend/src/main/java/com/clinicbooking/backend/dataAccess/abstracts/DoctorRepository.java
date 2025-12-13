@@ -6,4 +6,5 @@ import com.clinicbooking.backend.entities.concretes.Doctor;
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 
     boolean existsByEmail(String email);
+    boolean existsByDepartment_Id(int departmentId);
 }
