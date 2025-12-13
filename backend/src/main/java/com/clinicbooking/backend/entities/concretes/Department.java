@@ -1,4 +1,4 @@
-package com.clinicbooking.backend.entity;
+package com.clinicbooking.backend.entities.concretes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

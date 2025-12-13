@@ -1,27 +1,26 @@
-package com.clinicbooking.backend.entity;
-
-import java.time.LocalDateTime;
+package com.clinicbooking.backend.entities.concretes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "patients")
+@Table(name = "doctors")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Patient {
+@AllArgsConstructor
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false)
     private String firstName;
@@ -29,18 +28,14 @@ public class Patient {
     @Column(nullable = false)
     private String lastName;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     @Column(unique = true)
-    private String email;
+    private String email;  
 
-    @Column(nullable = false)
-    private String password;
+    private String phone;
 
-    private LocalDateTime createdAt;
 
-    @PrePersist
-    public void prePersist() {
-        if (createdAt == null) {
-            createdAt = LocalDateTime.now();
-        }
-    }
 }
