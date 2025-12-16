@@ -1,38 +1,44 @@
 package com.clinicbooking.backend.entities.concretes;
 
-import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "patients")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Patient {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String firstName;
+    @Column(nullable = false, unique = true, length = 20)
+    private String phone;
+
+    @Column(unique = true)
+    private String email;
 
     @Column(nullable = false)
-    private String lastName;
+    private String passwordHash;
 
-    private LocalDate dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
-    private User user;
+    @Column(nullable = false)
+    private boolean enabled;
+
+
 }
+
