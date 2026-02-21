@@ -1,40 +1,38 @@
-🏥 Clinic Booking – Backend
+# 🏥 Clinic Booking – Backend
 
-Bu proje, klinik randevu yönetim sistemi için geliştirilen Spring Boot tabanlı backend uygulamasıdır.
+Bu proje, klinik randevu yönetim sistemi için geliştirilen **Spring Boot tabanlı backend uygulamasıdır.**
 
-⚠️ Proje aktif geliştirme aşamasındadır. Yeni özellikler eklenmeye ve mimari yapı iyileştirilmeye devam edilmektedir.
+> ⚠️ Proje aktif geliştirme aşamasındadır. Yeni özellikler eklenmeye ve mimari yapı iyileştirilmeye devam edilmektedir.
 
-🚀 Proje Amacı
+---
+
+## 🚀 Proje Amacı
 
 Bu backend uygulamasının amacı:
 
-Klinik randevu yönetimini sağlamak
+- Klinik randevu yönetimini sağlamak  
+- Doktor, hasta ve randevu süreçlerini yönetmek  
+- RESTful API üzerinden frontend ile iletişim kurmak  
+- PostgreSQL veritabanı ile kalıcı veri yönetimi sağlamak  
 
-Doktor, hasta ve randevu süreçlerini yönetmek
+---
 
-RESTful API üzerinden frontend ile iletişim kurmak
+## 🛠️ Kullanılan Teknolojiler
 
-PostgreSQL veritabanı ile kalıcı veri yönetimi sağlamak
+- Java 17  
+- Spring Boot 3  
+- Spring Web  
+- Spring Data JPA  
+- Spring Validation  
+- PostgreSQL  
+- Lombok  
+- Maven  
 
-🛠️ Kullanılan Teknolojiler
+---
 
-Java 17
+## 📂 Proje Yapısı
 
-Spring Boot 3
-
-Spring Web
-
-Spring Data JPA
-
-Spring Validation
-
-PostgreSQL
-
-Lombok
-
-Maven
-
-📂 Proje Yapısı
+```
 backend
  └── src
      └── main
@@ -44,61 +42,81 @@ backend
          │         └── HealthController.java
          └── resources
               └── application.yml
-⚙️ Konfigürasyon
+```
 
-application.yml dosyasında PostgreSQL bağlantı ayarları tanımlıdır.
+---
+
+## ⚙️ Konfigürasyon
+
+`application.yml` dosyasında PostgreSQL bağlantı ayarları tanımlıdır.
 
 Projeyi çalıştırmadan önce:
 
-PostgreSQL servisinin çalıştığından emin olun.
+1. PostgreSQL servisinin çalıştığından emin olun.  
+2. `clinic_booking` adında bir veritabanı oluşturun.  
+3. Gerekirse `username` ve `password` bilgilerini güncelleyin.  
 
-clinic_booking adında bir veritabanı oluşturun.
+---
 
-Gerekirse username ve password bilgilerini güncelleyin.
+## ▶️ Uygulamayı Çalıştırma
 
-▶️ Uygulamayı Çalıştırma
-1️⃣ Projeyi klonlayın
+### 1️⃣ Projeyi klonlayın
+
+```bash
 git clone <repo-url>
 cd backend
-2️⃣ Maven ile çalıştırın
+```
+
+### 2️⃣ Maven ile çalıştırın
+
+```bash
 ./mvnw spring-boot:run
+```
 
 veya
 
+```bash
 mvn spring-boot:run
+```
 
 Uygulama varsayılan olarak aşağıdaki adreste çalışacaktır:
 
+```
 http://localhost:8080
-🔎 Mevcut Endpoint
-Health Check
-GET /api/health
+```
 
-Response:
+---
 
+## 🔎 Mevcut Endpoint
+
+### Health Check
+
+**GET** `/api/health`
+
+**Response:**
+
+```
 OK
+```
 
 Bu endpoint uygulamanın çalıştığını doğrulamak için eklenmiştir.
 
-🧩 Planlanan Özellikler (Roadmap)
+---
 
- Hasta (Patient) CRUD işlemleri
+## 🧩 Planlanan Özellikler (Roadmap)
 
- Doktor (Doctor) yönetimi
+- [ ] Hasta (Patient) CRUD işlemleri  
+- [ ] Doktor (Doctor) yönetimi  
+- [ ] Randevu (Appointment) sistemi  
+- [ ] DTO yapıları  
+- [ ] Global Exception Handling  
+- [ ] Authentication & Authorization (JWT)  
+- [ ] Swagger / OpenAPI dokümantasyonu  
+- [ ] Katmanlı mimari (Service, Repository, Entity) genişletmesi  
 
- Randevu (Appointment) sistemi
+---
 
- DTO yapıları
+## 📌 Not
 
- Global Exception Handling
-
- Authentication & Authorization (JWT)
-
- Swagger / OpenAPI dokümantasyonu
-
- Katmanlı mimari (Service, Repository, Entity) genişletmesi
-
-📌 Not
-
-Bu proje geliştirme süreci devam eden bir backend uygulamasıdır.
+Bu proje geliştirme süreci devam eden bir backend uygulamasıdır.  
 Mimari yapı ve domain modeli ilerleyen aşamalarda genişletilecektir.
